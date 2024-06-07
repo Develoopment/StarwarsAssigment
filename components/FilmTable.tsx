@@ -15,7 +15,7 @@ interface FilmProps{
 }
 
 // explicitly typing FilmTable as a react functional component that has FilmProps passed into it
-const FilmTable: React.FC<FilmProps> = ({filmlist}) => {
+const FilmTable: React.FC<FilmProps> = ({filmlist}, id) => {
   return (
     <div className='px-8'>
 
@@ -30,11 +30,11 @@ const FilmTable: React.FC<FilmProps> = ({filmlist}) => {
 
         {filmlist.map(film => 
             (
-                <tr className='hover:bg-[#95fbff89] '>
-                    <td className="border p-2 border-solid border-[#ddd]">{film.title}</td>
-                    <td className="border p-2 border-solid border-[#ddd]">{film.producer}</td>
-                    <td className="border p-2 border-solid border-[#ddd]">{film.director}</td>
-                    <td className="border p-2 border-solid border-[#ddd]">{film.release_date}</td>
+                <tr key={id} className='hover:bg-[#95fbff89] '>
+                    <td key={id + 1} className="border p-2 border-solid border-[#ddd]">{film.title}</td>
+                    <td key={id + 2} className="border p-2 border-solid border-[#ddd]">{film.producer}</td>
+                    <td key={id + 3} className="border p-2 border-solid border-[#ddd]">{film.director}</td>
+                    <td key={id + 4} className="border p-2 border-solid border-[#ddd]">{film.release_date}</td>
                 </tr>
             )
         )}
